@@ -3,8 +3,9 @@ FROM node:14 AS build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
+RUN npm install -g serve
 COPY . .
-RUN npm run build
+RUN serve -s dist
 
 # Stage 2: Set up the server environment
 FROM nginx:stable-alpine as production-stage
