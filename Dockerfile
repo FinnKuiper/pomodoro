@@ -3,7 +3,6 @@ FROM node:14 AS build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-RUN npm run build
 COPY . .
 RUN serve -s dist
 
